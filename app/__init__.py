@@ -33,7 +33,8 @@ def create_app():
     app.config["JWT_VERIFY_SUB"] = False
 
     # ============ CORS Configuration ============
-    allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:5000").split(",")
+    allowed_origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:5000")
+    allowed_origins = [origin.strip() for origin in allowed_origins_str.split(",")]
     CORS(app, resources={r"/api/*": {"origins": allowed_origins}})
 
     # ============ JWT Configuration ============
