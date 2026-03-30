@@ -12,7 +12,6 @@ JWT tokens include role information for role-based access control.
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from app.supabase_client import get_supabase
-from app.services.sms import generate_otp, send_otp, store_otp, verify_otp
 import os
 
 # Create Blueprint for authentication routes
