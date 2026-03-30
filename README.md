@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                   F DRIVE BACKEND - COMPLETE SETUP GUIDE                    ║
 ║                                                                              ║
@@ -352,3 +353,7 @@ Your F Drive backend is fully scaffolded with:
 ✅ Production-ready with Gunicorn support
 
 Next: Run build_project.py to create all files, then pip install requirements.txt!
+=======
+# foodies-dashboard-backend
+Flask backend for F Drive food delivery at Foodies (Pvt) Ltd, Harare, Zimbabwe
+>>>>>>> c3a6850958ddaea99329cd2504d9ce492a960ef4
