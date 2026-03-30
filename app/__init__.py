@@ -52,16 +52,22 @@ def create_app():
         return jsonify({"error": "Token has expired"}), 401
 
     # ============ Register Blueprints ============
-    from app.routes import auth, orders_complete as orders, menu, restaurants, riders, payments
-    from app.routes.admin import admin_bp
+    try:
+        from app.routes import auth, orders_complete as orders, menu, restaurants, riders, payments
+        from app.routes.admin import admin_bp
 
-    app.register_blueprint(auth.bp)
-    app.register_blueprint(orders.bp)
-    app.register_blueprint(menu.bp)
-    app.register_blueprint(restaurants.bp)
-    app.register_blueprint(riders.bp)
-    app.register_blueprint(payments.bp)
-    app.register_blueprint(admin_bp, url_prefix='/api/admin')
+        app.register_blueprint(auth.bp)
+        app.register_blueprint(orders.bp)
+        app.register_blueprint(menu.bp)
+        app.register_blueprint(restaurants.bp)
+        app.register_blueprint(riders.bp)
+        app.register_blueprint(payments.bp)
+        app.register_blueprint(admin_bp, url_prefix='/api/admin')
+    except Exception as e:
+        print(f"ERROR registering blueprints: {e}")
+        import traceback
+        traceback.print_exc()
+        raise
 
     # ============ Health Check Endpoint ============
     @app.route("/", methods=["GET"])
