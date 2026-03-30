@@ -20,8 +20,8 @@ def get_supabase():
     global _supabase_client
 
     if _supabase_client is None:
-        supabase_url = os.getenv("SUPABASE_URL")
-        supabase_service_key = os.getenv("SUPABASE_SERVICE_KEY") or os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        supabase_url = os.getenv("SUPABASE_URL", "").strip()
+        supabase_service_key = (os.getenv("SUPABASE_SERVICE_KEY") or os.getenv("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
 
         if not supabase_url or not supabase_service_key:
             raise ValueError(
